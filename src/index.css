@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --image-url: url("/btc.png");
+}
+
+body {
+  background-color: #050505;
+  margin: 0;
+  color: #eee;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  /* text-wrap: balance; */
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+main {
+  background-image: url("/bg_blurred_02.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#section2 {
+  background-image: url("/bg_blurred_03.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#payment_container {
+  background-image: var(--image-url);
+  background-size: cover;
+  background-position: center;
+  animation: payment 15s infinite linear;
+}
+@keyframes payment {
+  0%, 100% {
+    left: 0;
+    top: 0;
+    --image-url: url("/eth.png");
+  }
+  45% {
+    left: 100%;
+    top: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    left: 100%;
+    top: 100%;
+    transform: translateX(-100%) translateY(-100%);
+  }
+  95% {
+    left: 0;
+    top: 100%;
+    transform: translateY(-100%);
+  }
+}
+
+.payment-indicator-active {
+  animation: payment-animation 2s ease-in forwards;
+}
+@keyframes payment-animation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
